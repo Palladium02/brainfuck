@@ -8,12 +8,12 @@
 +++++++. # l
 . # l
 +++. # o
->++. # <Space>
+>++. # Space
 <<+++++++++++++++. # W
 >. # o
 +++. # r
 ------. # l
 --------. # d
 >+. # !
->. # <Newline>
-+++. # <Carriage Return>
+>. # Newline
++++. # Carriage Return
