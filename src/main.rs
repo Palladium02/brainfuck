@@ -34,7 +34,12 @@ fn interpret(program: Vec<u8>, mut mem: Vec<usize>) {
     while pc != program.len() {
         let instruction = program[pc] as char;
         match instruction {
-            '>' => mp += 1,
+            '>' => {
+                mp += 1;
+                if mp == mem.len() {
+                    panic!("Attempted to move memory pointer out of bounds (upper)");
+                }
+            }
             '<' => mp -= 1,
             '+' => mem[mp] += 1,
             '-' => mem[mp] -= 1,
