@@ -3,10 +3,10 @@ use std::{env::args, io::Read};
 fn main() {
     let input_file = args().nth(1).expect("No input file given");
     let input_buffer = std::fs::read(input_file).expect("Failed to read input file");
-    interpret(remove_whitespace(input_buffer), [0; 1024].to_vec());
+    interpret(clean_input(input_buffer), [0; 1024].to_vec());
 }
 
-fn remove_whitespace(buffer: Vec<u8>) -> Vec<u8> {
+fn clean_input(buffer: Vec<u8>) -> Vec<u8> {
     buffer
         .into_iter()
         .filter(|&c| {
