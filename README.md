@@ -7,5 +7,5 @@ the language (`>`, `<`, `+`, `-`, `.`, `,`, `[`, `]`) is ignored.
 ## Usage
 
 ```shell
-brainfuck <path/to/file>
+brainfuck <path/to/file> <optional integer value to specify mem size>
 ```

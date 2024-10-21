@@ -2,8 +2,13 @@ use std::{env::args, io::Read};
 
 fn main() {
     let input_file = args().nth(1).expect("No input file given");
+    let memory_size = args()
+        .nth(2)
+        .unwrap_or("1024".to_string())
+        .parse::<usize>()
+        .expect("Failed to parse memory size");
     let input_buffer = std::fs::read(input_file).expect("Failed to read input file");
-    interpret(clean_input(input_buffer), [0; 1024].to_vec());
+    interpret(clean_input(input_buffer), create_memory(memory_size));
 }
 
 fn clean_input(buffer: Vec<u8>) -> Vec<u8> {
@@ -70,4 +75,10 @@ fn interpret(program: Vec<u8>, mut mem: Vec<usize>) {
 
         pc += 1;
     }
+}
+
+fn create_memory(size: usize) -> Vec<usize> {
+    let mut memory = Vec::with_capacity(size);
+    memory.resize(size, 0);
+    memory
 }
